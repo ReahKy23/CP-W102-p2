@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+
 
 const Flashcard = ({question, answer}) =>{
+
+
+      const [isFlipped, setIsFlipped] = useState(false);
+    
+
+
     return(
-        <div className="card-container">
+        <div className="card-container"
+        onClick={() => setIsFlipped(!isFlipped)}>
             <div className="card-info">
-                <p>{question}</p>
+                <p>{isFlipped ? answer : question}</p>
             </div>
         </div>
     )
