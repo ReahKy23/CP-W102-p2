@@ -54,7 +54,7 @@ const App = () => {
     <div className="App">
       <h1>Nations Quiz</h1>
       <h2>How strong are your Geography skills? Test how well you know your nations by capitol!</h2>
-      <h2>There are {cards.length} cards in this deck</h2>
+      <p>There are {cards.length} cards in this deck</p>
       <Flashcard
         question={freshDeck ? currentCard.question: 'Start!'}
         answer={freshDeck ? currentCard.answer: 'Press the next arrow navigate set!'} />
