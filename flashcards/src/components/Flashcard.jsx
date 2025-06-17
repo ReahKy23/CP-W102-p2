@@ -1,10 +1,10 @@
 import React from "react";
 
-const Flashcard = () =>{
+const Flashcard = ({question, answer}) =>{
     return(
         <div className="card-container">
             <div className="card-info">
-                <p>Start!</p>
+                <p>{question}</p>
             </div>
         </div>
     )
