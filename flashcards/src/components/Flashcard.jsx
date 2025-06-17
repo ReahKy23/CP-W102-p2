@@ -1,21 +1,22 @@
 import React, {useState} from "react";
 
 
-const Flashcard = ({question, answer}) =>{
+const Flashcard = ({ question, answer }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
-
-      const [isFlipped, setIsFlipped] = useState(false);
-    
-
-
-    return(
-        <div className="card-container"
-        onClick={() => setIsFlipped(!isFlipped)}>
-            <div className="card-info">
-                <p>{isFlipped ? answer : question}</p>
-            </div>
+  return (
+    <div className="flip-card" onClick={() => setIsFlipped(!isFlipped)}>
+      <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
+        <div className="flip-card-front">
+          <p>{question}</p>
         </div>
-    )
-}
+        <div className="flip-card-back">
+          <p>{answer}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Flashcard
+
+export default Flashcard;

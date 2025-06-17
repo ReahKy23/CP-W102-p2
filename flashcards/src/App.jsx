@@ -52,8 +52,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Nations Quiz</h1>
-      <h2>How strong are your Geography skills? Test how well you know your nations by capitol!</h2>
+      <h1>Capital Pursuit</h1>
+      <h2>How strong are your Geography skills? Test how well you know your nations by capital!</h2>
       <p>There are {cards.length} cards in this deck</p>
       <Flashcard
         question={freshDeck ? currentCard.question: 'Start!'}
