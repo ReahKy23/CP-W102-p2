@@ -4,7 +4,7 @@ const Flashcard = () =>{
     return(
         <div className="card-container">
             <div className="card-info">
-                <p>This is where the Card text goes</p>
+                <p>Start!</p>
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ const App = () => {
       <h2>How strong are your Geography skills? Test how well you know your nations by capitol!</h2>
       <Flashcard />
       <br></br>
-      <button>→</button>
+      <button className='nextCard'>→</button>
     </div>
     
   )

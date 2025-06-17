@@ -27,21 +27,21 @@ html{
 }
 
 h1, h2{
-  text-shadow: -4px 1px 4px black;
+  text-shadow: -4px 1px 4px rgba(0, 0, 0, 0.128);
 }
 
 .card-container{
   border: solid 2px;
   border-radius: 5px;
-  display: inline-flex;
+  display: inline-block;
   margin-top: 5vh;
   padding-block: 5vh;
   padding-inline: 10vw;
+  min-width: 20vw;
   background-color: antiquewhite;
-
 }
 .card-container:hover{
-  box-shadow: 0px 0px 29px 9px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 20px 9px rgba(0,0,0,0.69);
   cursor: pointer;
 }
 
@@ -53,4 +53,7 @@ h1, h2{
 button{
   margin-top: 2vh;
   background-color: rgba(0, 0, 0, 0.199);
+}
+button:hover{
+  background-color: rgba(224, 206, 182, 0.51);
 }
