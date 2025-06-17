@@ -1,7 +1,6 @@
-import './App.css';
-import Flashcard from './components/Flashcard.jsx'
 import React, { useState } from 'react';
-
+import Flashcard from './components/Flashcard.jsx'
+import './App.css';
 
 // cards array
 const cards = [
