@@ -1,11 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 
-
-const Flashcard = ({ question, answer }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
+const Flashcard = ({ question, answer, isFlipped }) => {
   return (
-    <div className="flip-card" onClick={() => setIsFlipped(!isFlipped)}>
+    <div className="flip-card">
       <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
         <div className="flip-card-front">
           <p>{question}</p>
@@ -17,6 +14,5 @@ const Flashcard = ({ question, answer }) => {
     </div>
   );
 };
-
 
 export default Flashcard;

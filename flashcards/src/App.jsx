@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Flashcard from './components/Flashcard.jsx'
+import Flashcard from './components/Flashcard.jsx';
 import './App.css';
 
-// cards array
 const cards = [
   { question: "This country's capital is Paris.", answer: "France" },
   { question: "This country's capital is Tokyo.", answer: "Japan" },
@@ -29,40 +28,76 @@ const cards = [
   { question: "This country's capital is Lisbon.", answer: "Portugal" },
   { question: "This country's capital is Warsaw.", answer: "Poland" },
   { question: "This country's capital is Jakarta.", answer: "Indonesia" }
-
 ];
 
 const App = () => {
-
-  const [freshDeck, setFreshDeck] = useState(false);
-
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-
-  const displayNextCard = () => {
-    let newIndex = currentCardIndex;
-    while (newIndex === currentCardIndex) {
-      newIndex = Math.floor(Math.random() * cards.length);
-    }
-    if (!freshDeck) setFreshDeck(true);
-    setCurrentCardIndex(newIndex);
-  }
+  const [userInput, setUserInput] = useState('');
+  const [feedback, setFeedback] = useState(null); // 'correct' or 'incorrect'
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const currentCard = cards[currentCardIndex];
 
+  const checkAnswer = () => {
+    const guess = userInput.trim().toLowerCase();
+    const answer = currentCard.answer.toLowerCase();
+    if (guess === answer) {
+      setFeedback('correct');
+    } else {
+      setFeedback('incorrect');
+    }
+    setIsFlipped(true); // flip to reveal answer
+  };
+
+  const nextCard = () => {
+    if (currentCardIndex < cards.length - 1) {
+      setCurrentCardIndex(currentCardIndex + 1);
+      resetState();
+    }
+  };
+
+  const prevCard = () => {
+    if (currentCardIndex > 0) {
+      setCurrentCardIndex(currentCardIndex - 1);
+      resetState();
+    }
+  };
+
+  const resetState = () => {
+    setUserInput('');
+    setFeedback(null);
+    setIsFlipped(false);
+  };
 
   return (
     <div className="App">
       <h1>Capital Pursuit</h1>
       <h2>How strong are your Geography skills? Test how well you know your nations by capital!</h2>
-      <p>There are {cards.length} cards in this deck</p>
+      <p>Card {currentCardIndex + 1} of {cards.length}</p>
+
       <Flashcard
-        question={freshDeck ? currentCard.question: 'Start!'}
-        answer={freshDeck ? currentCard.answer: 'Press the next arrow navigate set!'} />
-      <br></br>
-      <button onClick={displayNextCard}>→</button>
+        question={currentCard.question}
+        answer={currentCard.answer}
+        isFlipped={isFlipped}
+      />
+
+      <input
+        type="text"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+        placeholder="Type your guess here"
+      />
+      <button onClick={checkAnswer}>Submit</button>
+
+      {feedback === 'correct' && <p style={{ color: 'green' }}> Correct!</p>}
+      {feedback === 'incorrect' && <p style={{ color: 'red' }}> Try again!</p>}
+
+      <div>
+        <button onClick={prevCard} disabled={currentCardIndex === 0}>←</button>
+        <button onClick={nextCard} disabled={currentCardIndex === cards.length - 1}>→</button>
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default App
+export default App;
