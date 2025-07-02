@@ -2,9 +2,9 @@
 
 Submitted by: **Kylah Kerr**
 
-This web app: **insert description**
+This web app: **This trivia pack tests the user's knowledge of international nations based off their capitals.**
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
